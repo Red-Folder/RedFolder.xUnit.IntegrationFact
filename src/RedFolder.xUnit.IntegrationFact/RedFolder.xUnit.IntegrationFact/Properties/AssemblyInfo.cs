@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RedFolder.xUnit.IntegrationFact")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A custom xUnit attribute to use as an alternative to Fact when wanting to have integration tests.  It will utilise an environment variable to decide to show or not - keeping your Test Explorer clean for those fast moving unit tests.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Red Folder Consultancy Ltd")]
 [assembly: AssemblyProduct("RedFolder.xUnit.IntegrationFact")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © Red Folder Consultancy Ltd 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
