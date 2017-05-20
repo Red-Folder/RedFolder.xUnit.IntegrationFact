@@ -41,7 +41,7 @@ namespace RedFolder.xUnit.IntegrationFact
                     return base.Skip;
                 }
 
-                return "Integration Fact not enabled (Resharper workaround - see https://github.com/Red-Folder/RedFolder.xUnit.IntegrationFact/issues/1");
+                return "Integration Fact not enabled (Resharper workaround - see https://github.com/Red-Folder/RedFolder.xUnit.IntegrationFact/issues/1)";
             }
 
             set
