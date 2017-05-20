@@ -6,6 +6,27 @@ While it all seems to work, this is currently very much work in progress - thus 
 
 Feel free to use - I'd appreciate any feedback.
 
+## To Install
+Install into your project with:
+
+```
+Install-Package RedFolder.xUnit.IntegrationFact -Pre
+```
+
+Then add IntegrationFact to any test class that you want to inplace of xUnit's standard Fact
+
+```
+using RedFolder.xUnit.IntegrationFact;
+.
+.
+.
+[IntegrationFact]
+public void Test1()
+{
+    ...
+}
+```
+
 ## Why would I use this
 This custom xUnit attribute is intended to be used with integration tests.  By nature, integration test will be slower (and possible have side-effects) compared to unit tests.
 
@@ -26,6 +47,9 @@ The environment variable approach is not without friction.  Having to change the
 However, I wanted to avoid any situation in which a one developer could accidently enable it for another developer (for example, if I'd used app.config setting which could have been checked into source control and then propogated to all in the team).
 
 I may look at enabling via some other method dependant on feedback.
+
+## Related Projects
+If you're working with SpecFlow, have a look at my RedFolder.xUnit.IntegrationFact.SpecFlow package.  This will automatically generate SpecFlow tests with the IntegrationFact rather than the standard xUnit Fact.
 
 ## Know issues
 Disabled Integration tests will still show in Resharper.  I believe this to be a problem with Resharper and how it discovered xUnit tests - see https://github.com/Red-Folder/RedFolder.xUnit.IntegrationFact/issues/1
