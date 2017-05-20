@@ -29,3 +29,6 @@ I may look at enabling via some other method dependant on feedback.
 
 ## Know issues
 Disabled Integration tests will still show in Resharper.  I believe this to be a problem with Resharper and how it discovered xUnit tests - see https://github.com/Red-Folder/RedFolder.xUnit.IntegrationFact/issues/1
+
+## Credits
+Credit for the code goes to the Octokit team and the IntegrationTestAttribute -> https://github.com/octokit/octokit.net/blob/c9b2c1260bc87b7782d4fd9645d43a8885203923/Octokit.Tests.Integration/Helpers/IntegrationTestAttribute.cs

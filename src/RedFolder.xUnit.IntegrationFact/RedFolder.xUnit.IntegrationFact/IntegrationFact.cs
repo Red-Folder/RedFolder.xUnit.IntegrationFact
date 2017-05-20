@@ -18,12 +18,39 @@ namespace RedFolder.xUnit.IntegrationFact
 
         public IEnumerable<IXunitTestCase> Discover(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod, IAttributeInfo factAttribute)
         {
-            return Enabled
+            return IntegrationFactAttribute.Enabled
                 ? new[] { new XunitTestCase(diagnosticMessageSink, discoveryOptions.MethodDisplayOrDefault(), testMethod) }
                 : Enumerable.Empty<IXunitTestCase>();
         }
+    }
 
-        private bool Enabled
+    [XunitTestCaseDiscoverer("RedFolder.xUnit.IntegrationFact.IntegrationFactDiscoverer", "RedFolder.xUnit.IntegrationFact")]
+    public class IntegrationFactAttribute : FactAttribute
+    {
+        public override string Skip
+        {
+            get
+            {
+                if (base.Skip != null && base.Skip.Length > 0)
+                {
+                    return base.Skip;
+                }
+
+                if (Enabled)
+                {
+                    return base.Skip;
+                }
+
+                return "Integration Fact not enabled (Resharper workaround - see https://github.com/Red-Folder/RedFolder.xUnit.IntegrationFact/issues/1");
+            }
+
+            set
+            {
+                base.Skip = value;
+            }
+        }
+
+        public static bool Enabled
         {
             get
             {
@@ -31,10 +58,5 @@ namespace RedFolder.xUnit.IntegrationFact
                 return (enabled.ToLower() == "true");
             }
         }
-    }
-
-    [XunitTestCaseDiscoverer("RedFolder.xUnit.IntegrationFact.IntegrationFactDiscoverer", "RedFolder.xUnit.IntegrationFact")]
-    public class IntegrationFactAttribute : FactAttribute
-    {
     }
 }
